@@ -37,55 +37,8 @@ long double: floating-point (80 bits)
 
 int main() {
     io_optimize();
-    io_file("input.txt", "output.txt");
+    // io_file("input.txt", "output.txt");
 
     // ----- WRITE CODE HERE ----- //
-    int a_max;
-    int a;
-    int b_max;
-    int b;
-    int c_max;
-    int c;
-
-    scanf("%d %d", &a_max, &a);
-    scanf("%d %d", &b_max, &b);
-    scanf("%d %d", &c_max, &c);
-
-    int i;
-    forl(i, 1, 33) {
-        if (a + b > b_max) {
-            a -= (b_max - b);
-            b = b_max;
-        } else {
-            b += a;
-            a = 0;
-        }
-
-        if (b + c > c_max) {
-            b -= (c_max - c);
-            c = c_max;
-        } else {
-            c += b;
-            b = 0;
-        }
-
-        if (c + a > a_max) {
-            c -= (a_max - a);
-            a = a_max;
-        } else {
-            a += c;
-            c = 0;
-        }
-    }
-
-    if (a + b > b_max) {
-        a -= (b_max - b);
-        b = b_max;
-    } else {
-        b += a;
-        a = 0;
-    }
-
-    printf("%d\n%d\n%d", a, b, c);
-    
+    cout << "security";
 }

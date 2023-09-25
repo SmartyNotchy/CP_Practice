@@ -1,0 +1,90 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef long double ld;
+
+#define io_optimize() ios::sync_with_stdio(0); cin.tie(0);
+#define forl(loop_var,initial_val,end_val) for (int loop_var = initial_val; loop_var <= end_val; loop_var++)
+#define rep(times) for (int i = 1; i <= times; i++)
+#define io_file(input_file, output_file) freopen(input_file, "r", stdin); freopen(output_file, "w", stdout);
+
+/* 
+---------------------------------------
+scanf/printf Cheat Sheet
+
+%d - Signed Int
+%f - Float
+%i - Unsigned Int
+%ld, %li - Long
+%lf - Double
+%Lf - Long Double
+%lu - Unsigned Long
+%lli, %lld - Long Long
+%llu - Unsigned Long Long
+%s - String
+
+%.9f - Floating Point (9 Dec Places)
+---------------------------------------
+Primitive Types Cheat Sheet
+
+int: -2e9 to 2e9
+ll: -9e18 to 9e18
+double: floating-point (64 bits)
+long double: floating-point (80 bits)
+---------------------------------------
+*/
+
+int main() {
+    io_optimize();
+    io_file("mixmilk.in", "mixmilk.out");
+
+    // ----- WRITE CODE HERE ----- //
+    int a_max;
+    int a;
+    int b_max;
+    int b;
+    int c_max;
+    int c;
+
+    cin >> a_max >> a;
+    cin >> b_max >> b;
+    cin >> c_max >> c;
+
+    int i;
+    forl(i, 1, 33) {
+        if (a + b > b_max) {
+            a -= (b_max - b);
+            b = b_max;
+        } else {
+            b += a;
+            a = 0;
+        }
+
+        if (b + c > c_max) {
+            b -= (c_max - c);
+            c = c_max;
+        } else {
+            c += b;
+            b = 0;
+        }
+
+        if (c + a > a_max) {
+            c -= (a_max - a);
+            a = a_max;
+        } else {
+            a += c;
+            c = 0;
+        }
+    }
+
+    if (a + b > b_max) {
+        a -= (b_max - b);
+        b = b_max;
+    } else {
+        b += a;
+        a = 0;
+    }
+
+    cout << a << "\n" << b << "\n" << c << "\n";    
+}
