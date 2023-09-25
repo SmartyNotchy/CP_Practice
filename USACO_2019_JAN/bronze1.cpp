@@ -37,8 +37,23 @@ long double: floating-point (80 bits)
 
 int main() {
     io_optimize();
-    io_file("blist.in", "blist.out");
+    io_file("shell.in", "shell.out");
 
     // ----- WRITE CODE HERE ----- //
-    
+    int n;
+    cin >> n;
+
+    vector<int> g = {0, 0, 0};
+    vector<int> s = {0, 1, 2};
+    for (int i = 0; i < n; i++) {
+        int a, b, c;
+        cin >> a >> b >> c;
+        a -= 1;
+        b -= 1;
+        c -= 1;
+        swap(s[a], s[b]);
+        g[s[c]] += 1;
+    }
+
+    cout << max({g[0], g[1], g[2]});
 }
