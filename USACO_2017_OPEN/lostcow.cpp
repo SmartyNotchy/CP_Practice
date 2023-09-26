@@ -37,42 +37,8 @@ long double: floating-point (80 bits)
 
 int main() {
     io_optimize();
-    io_file("speeding.in", "speeding.out");
+    // io_file("input.txt", "output.txt");
 
     // ----- WRITE CODE HERE ----- //
-    int n, m;
-    cin >> n >> m;
-
-    vector<int> l(100);
-    vector<int> b(100);
-    int worst = 0;
-
-    int c = 0;
-    for (int i = 0; i < n; i++) {
-        int x, y;
-        cin >> x >> y;
-        for (int j = c; j < c + x; j++) {
-            l[j] = y;
-        }
-        c += x;
-    }
-
-    c = 0;
-    for (int i = 0; i < n; i++) {
-        int x, y;
-        cin >> x >> y;
-        for (int j = c; j < c + x; j++) {
-            b[j] = y;
-        }
-        c += x;
-    }
-
-    for (int i = 0; i < 100; i++) {
-        int diff = b[i] - l[i];
-        if (diff > worst) {
-            worst = diff;
-        }
-    }
-
-    cout << worst;
+    
 }
