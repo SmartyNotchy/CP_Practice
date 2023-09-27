@@ -37,8 +37,27 @@ long double: floating-point (80 bits)
 
 int main() {
     io_optimize();
-    // io_file("input.txt", "output.txt");
+    io_file("lostcow.in", "lostcow.out");
 
     // ----- WRITE CODE HERE ----- //
-    
+    int x, y;
+    cin >> x >> y;
+    int inc = 1;
+    int steps = 0;
+    while (true) {
+        if (y > x && y <= x + inc) {
+            steps += (y - x);
+            break;
+        } else {
+            steps += inc;
+        }
+        if (y < x && y >= x - inc * 2) {
+            steps += inc + (x - y);
+            break;
+        } else {
+            steps += inc * 5;
+        }
+        inc *= 4;
+    }
+    cout << steps;
 }
